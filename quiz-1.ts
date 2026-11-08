@@ -23,12 +23,28 @@
 
 // Kerjakan Quiznya Disini
 class Mario {   
-    hp: number = 1;
-    speed: number = 5;
-    currentForm: "mario" | "super mario" | "fire mario" = "mario";
-    invicible: boolean = false;
+    hp: number;
+    speed: number;
+    currentForm: "mario" | "super mario" | "fire mario";
+    invicible: boolean;
     positionX: number = 0;
     positionY: number = 0;
+
+    constructor(
+        hp: number = 1,
+        speed: number = 5,
+        currentForm: "mario" | "super mario" | "fire mario" = 'mario',
+        invicible: boolean = false,
+        positionX: number = 0,
+        positionY: number = 0,
+    ) {
+        this.hp = hp;
+        this.speed = speed;
+        this.currentForm = currentForm;
+        this.invicible = invicible;
+        this.positionX = positionX;
+        this.positionY = positionY;
+    }
 
     moveRight(): number {
         this.positionX += this.speed 
@@ -60,6 +76,7 @@ class superMario extends Mario{
     superMushroom(): void{
         this.currentForm = "super mario"
         this.hp += 1
+        
         console.log(`Mario menjadi Super Mario, HP ${this.hp}`)
     }
     constructor() {
